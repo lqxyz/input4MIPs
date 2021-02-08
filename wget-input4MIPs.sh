@@ -1042,5 +1042,9 @@ download
 
 dedup_cache_
 
+# Move dataset to data directory
+dt_dir='./input_data'
+[[ ! -d $dt_dir ]] && mkdir $dt_dir
+mv *.nc $dt_dir/
 
 echo "done"
