@@ -1,0 +1,1 @@
+../../input4MIPs/sftof_input4MIPs_SSTsAndSeaIce_CMIP_PCMDI-AMIP-1-1-6_gn.nc
