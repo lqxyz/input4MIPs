@@ -23,6 +23,8 @@ do
     echo $outfn
 
     cdo selyear,${start_year}/${end_year} "$fn" "$outfn"
+    # Example: get annual cycle climatology
+    # cdo ymonmean in.nc out.nc
 
     # Define output file
     varnm=$(echo $fn | awk -F '_' '{print $1}')
