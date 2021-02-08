@@ -7,4 +7,4 @@ Download the input4MIPs dataset via [`wget-input4MIPs.sh`](https://github.com/lq
 ### AMIP SST and SIC data
 Run the script [`amip_input_sst_sic.sh`](https://github.com/lqxyz/input4MIPs/blob/main/amip_input_sst_sic.sh) to get the AMIP input files, including sea surface temperature (SST) and sea ice concentration (SIC). The default is from 1979 to 2008, but you can change the end year (e.g., 2014) according to your needs.
 
-Note that in order to satisfy the calendar type in [`Isca`](https://github.com/ExeClim/Isca), the `standard` calendar is changed to `360_day` calendar, with units being set to `days since 1979-01-01 00:00:00.0`.
+Note that in order to satisfy the calendar type in [`Isca`](https://github.com/ExeClim/Isca), the `standard` calendar is changed to `360_day` calendar, with units being set to `days since 1979-01-01 00:00:00.0`. These are supported by [`CDO`](https://code.mpimet.mpg.de/projects/cdo/wiki/Cdo#Documentation) and [`NCO`](http://nco.sourceforge.net/).
