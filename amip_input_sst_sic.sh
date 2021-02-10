@@ -28,9 +28,9 @@ do
 
     # Define output file
     varnm=$(echo $fn | awk -F '_' '{print $1}')
-    amip_fn=${outfn/.nc/} #"$varnm"_amip
-    echo name is $amip_fn
-    outfn_final="$outdir/$outfn" #"$outdir/$amip_fn".nc
+    amip_fn=${outfn/.nc/}
+    echo "name is $amip_fn"
+    outfn_final="$outdir/$outfn"
 
     outfn1=${outfn/.nc/_1.nc}
 
@@ -51,12 +51,12 @@ do
         ncatted -O -a units,siconcbcs,o,c,"1" $outfn_final
     fi
    
-    echo Rename variables...
+    echo 'Rename variables'
     # Rename the variable name to the filename
     cdo chname,$varnm,$amip_fn $outfn_final $outfn1
     mv $outfn1 $outfn_final
 
-    echo Change calendar type from standard to 360_day
+    echo 'Change calendar type from standard to 360_day'
 
     cdo -setcalendar,360_day $outfn_final $outfn1
     cdo -settaxis,1979-01-01,00:00:00,30day $outfn1 $outfn_final
@@ -66,10 +66,13 @@ do
     ## Change the attribute of variable
     ## change the 'calendar' attribute of variable 'time'
     ncatted -O -a calendar,time,o,c,"THIRTY_DAY_MONTHS" $outfn_final
+    # ncatted -O -a calendar_type,time,o,c,"THIRTY_DAY_MONTHS" $outfn_final
     ncatted -O -a units,time,o,c,"days since 1979-01-01 00:00:00.0" $outfn_final
-    ncatted -O -a calendar_type,time,o,c,"THIRTY_DAY_MONTHS" $outfn_final
+
+    # Remap from 1x1 to T42 (r128x64)
+    cdo remapbil,r128x64 $outfn_final $outfn1
+    mv $outfn1 $outfn_final
 
     rm $outfn
-
 done
 
