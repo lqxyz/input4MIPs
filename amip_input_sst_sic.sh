@@ -63,15 +63,15 @@ do
     cdo -shifttime,15days $outfn_final $outfn1
     mv $outfn1 $outfn_final
 
+    # Remap from 1x1 to T42 (r128x64)
+    cdo remapbil,r128x64 $outfn_final $outfn1
+    mv $outfn1 $outfn_final
+
     ## Change the attribute of variable
     ## change the 'calendar' attribute of variable 'time'
     ncatted -O -a calendar,time,o,c,"THIRTY_DAY_MONTHS" $outfn_final
     # ncatted -O -a calendar_type,time,o,c,"THIRTY_DAY_MONTHS" $outfn_final
     ncatted -O -a units,time,o,c,"days since 1979-01-01 00:00:00.0" $outfn_final
-
-    # Remap from 1x1 to T42 (r128x64)
-    cdo remapbil,r128x64 $outfn_final $outfn1
-    mv $outfn1 $outfn_final
 
     rm $outfn
 done
