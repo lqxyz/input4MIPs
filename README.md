@@ -11,5 +11,5 @@ Download the input4MIPs dataset via [`wget-input4MIPs.sh`](https://github.com/lq
 
     * The [`NCL`](https://www.ncl.ucar.edu/) script [`change_calendar.ncl`](https://github.com/lqxyz/input4MIPs/blob/main/change_calendar.ncl) is an example to change the calendar of netCDF files. For example, convert `standard` calendar to [`Julian`](https://en.wikipedia.org/wiki/Julian_calendar) calendar, which seems to be not supported by `CDO`.
 
-2. Similarly, the script [`amip_input_sst_sic_clim.sh`](https://github.com/lqxyz/input4MIPs/blob/main/amip_input_sst_sic_clim.sh) is to generate the climatology files for SST and SIC.
+2. Similarly, the script [`amip_input_sst_sic_clim.sh`](https://github.com/lqxyz/input4MIPs/blob/main/amip_input_sst_sic_clim.sh) is to generate the climatology files for SST and SIC, in which the time units are set to `days since 0000-01-01 00:00:00.0`.
 
