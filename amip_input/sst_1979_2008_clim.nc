@@ -1,0 +1,1 @@
+../../input4MIPs/amip_input/sst_1979_2008_clim.nc
